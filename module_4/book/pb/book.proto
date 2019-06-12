@@ -1,0 +1,17 @@
+// in folder mymath/pb
+syntax = "proto3";
+
+package main;
+
+service BooksService {
+	rpc Add (BooksRequest) returns (AnswerReply) {}
+}
+
+message BooksRequest {
+	string title = 1;
+	string author = 2;
+}
+
+message AnswerReply {
+	string result = 1;
+}
