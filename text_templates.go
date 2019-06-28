@@ -6,11 +6,6 @@ import (
 	"text/template"
 )
 
-type Book struct {
-	Title  string
-	Author string
-}
-
 func checkError(e []error) {
 	for _, err := range e {
 		if err != nil {

@@ -16,12 +16,12 @@ func main() {
 	book := Book{Title: "Harry Potter", Author: "J.K. Rowling"}
 	b, _ := json.Marshal(book)
 	err := ioutil.WriteFile("demo.json", b, 0644)
-	checkError(err)
+	CheckError(err)
 
 	fileData, err := ioutil.ReadFile("demo.json")
 	var bookParsed Book
 	err = json.Unmarshal(fileData, &bookParsed)
-	checkError(err)
+	CheckError(err)
 	fmt.Printf("%+v", bookParsed)
 
 	// Array of struct objects
@@ -29,16 +29,16 @@ func main() {
 		{Title: "Harry Potter", Author: "J.K. Rowling"}}
 	b, _ = json.Marshal(books)
 	err = ioutil.WriteFile("demo_array.json", b, 0644)
-	checkError(err)
+	CheckError(err)
 
 	fileData, err = ioutil.ReadFile("demo_array.json")
 	var bookParsedArray []Book
 	err = json.Unmarshal(fileData, &bookParsedArray)
-	checkError(err)
+	CheckError(err)
 	fmt.Printf("%+v", bookParsedArray)
 }
 
-func checkError(err error) {
+func CheckError(err error) {
 	if err != nil {
 		panic(err)
 	}
